@@ -1,6 +1,5 @@
 import Image from "next/image"
-import { Wifi, Coffee, Briefcase, Utensils, Dumbbell, Car, Users, Sun } from "lucide-react"
-import type { LucideIcon } from "lucide-react";
+import { Wifi, Coffee, Briefcase, Utensils, Dumbbell, Car, Users, Sun, LucideIcon } from "lucide-react/icons"
 
 
 interface Amenity {

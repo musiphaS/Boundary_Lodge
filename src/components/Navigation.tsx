@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import type { Icon as LucideIcon } from "lucide-react"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -13,6 +14,15 @@ const navItems = [
   { name: "Book", href: "/booking" },
   { name: "Contact", href: "/contact" },
 ]
+
+// Type-safe icon wrapper component
+const Icon = ({
+  component: Component,
+  className,
+}: {
+  component: LucideIcon
+  className?: string
+}) => <Component className={className} />
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -39,12 +49,16 @@ export default function Navigation() {
               ))}
             </div>
           </div>
-          <div className="md:hidden">
+          <div className="md-hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <Icon component={X} className="h-6 w-6" />
+              ) : (
+                <Icon component={Menu} className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
